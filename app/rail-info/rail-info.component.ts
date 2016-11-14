@@ -26,8 +26,6 @@ export class RailInfoComponent {
     this.edges.push(new Edge(from, to, weight));
   }
 
-
-
   findEdge(from, to): Edge {
     return this.edges.find(i => (i.from === from) && (i.to === to));
   }

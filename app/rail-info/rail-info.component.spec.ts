@@ -46,8 +46,8 @@ describe('RailInfoComponent', function () {
 
   it('should add graph', () => {
     let [_, from, to] = ['H', 'I', 10];
-    const graph_count = comp.edges.length;
+    const graphCount = comp.edges.length;
     comp.addEdge(from, to, 10);
-    expect(comp.edges.length).toEqual(graph_count + 1);
+    expect(comp.edges.length).toEqual(graphCount + 1);
   });
 });
