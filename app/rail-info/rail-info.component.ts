@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Graph } from './graph';
+import { Edge } from './edge';
 
 @Component({
   moduleId: module.id,
@@ -7,17 +7,28 @@ import { Graph } from './graph';
   templateUrl: 'rail-info.component.html'
 })
 export class RailInfoComponent {
-  paths: Graph[] = [];
-  graph_items: any[] = ['AB5', 'BC4', 'CD8', 'DC8',
-                        'DE6', 'AD5', 'CE2', 'EB3', 'AE7'];
+  edges: Edge[] = [];
+  graph: any[] = ['AB5', 'BC4', 'CD8', 'DC8',
+                  'DE6', 'AD5', 'CE2', 'EB3', 'AE7'];
   constructor() {
-    for(let item of this.graph_items){
-      this.paths.push(this.createPath(item));
+    for(let item of this.graph){
+      let [_, f, t, w, __, ___] = item.match(/([A-Z])([A-Z])([\d+])/);
+      this.addEdge(f, t, w);
     }
   }
 
-  createPath(item: string): Graph {
-    let props: any[] = item.match(/([A-Z])([A-Z])([\d+])/);
-    return new Graph(props[1], props[2], props[3]);
+  addEdge(from, to, weight): void {
+    let edge = this.findEdge(from, to);
+    if(edge){
+      edge.weight = weight;
+      return;
+    }
+    this.edges.push(new Edge(from, to, weight));
+  }
+
+
+
+  findEdge(from, to): Edge {
+    return this.edges.find(i => (i.from === from) && (i.to === to));
   }
 }

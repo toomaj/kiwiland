@@ -1,12 +1,12 @@
-import { Graph } from './graph';
+import { Edge } from './edge';
 /////  SPECS  //////
 
-describe('Graph', function () {
+describe('Edge', function () {
   let items: any[] = ['A', 'B', 'C', 'D', 'E']
   let from: string = randomChar(items);
   let to: string = randomChar(items);
   let weight: number = Math.floor(Math.random() * 100);
-  let fixture = new Graph(from, to, weight);
+  let fixture = new Edge(from, to, weight);
 
   it('should set "from"', () => expect(fixture.from).toEqual(from));
   it('should set "to"', () => expect(fixture.to).toEqual(to));
