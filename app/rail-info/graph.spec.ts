@@ -17,4 +17,3 @@ describe('Graph', function () {
 function randomChar(items: any[]): string {
   return items[Math.floor(Math.random() * items.length)];
 }
-
