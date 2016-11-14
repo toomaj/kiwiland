@@ -38,4 +38,11 @@ describe('RailInfoComponent', function () {
     expect(el.textContent).toMatch(/OUT PUT GOES HERE/i,
       '<li>Should present "OUT PUT GOES HERE" title</li>');
   });
+
+  it('should have sample output text', () => {
+    //this just a temporary test to make the arary push process fail
+    //will be replaced with appropriate example where Graph objects
+    //need to be tested
+    expect(comp.paths.length).toEqual(9);
+  });
 });
