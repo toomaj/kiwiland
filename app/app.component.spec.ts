@@ -12,7 +12,7 @@ describe('AppComponent', function () {
 
   beforeEach(async(() => {
    TestBed.configureTestingModule({
-      declarations: [ AppComponent ]
+      declarations: [ AppComponent, RailInfoComponent ]
     })
     .compileComponents();
   }));
@@ -31,3 +31,12 @@ describe('AppComponent', function () {
       '<h3>Should present "Kiwiland App" heading</h3>');
   });
 });
+
+/// Stub RailInfoComponent ///
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'rail-info',
+  template: ''
+})
+class RailInfoComponent {}
