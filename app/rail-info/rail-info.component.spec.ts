@@ -39,10 +39,15 @@ describe('RailInfoComponent', function () {
       '<li>Should present "OUT PUT GOES HERE" title</li>');
   });
 
-  it('should have sample output text', () => {
-    //this just a temporary test to make the arary push process fail
-    //will be replaced with appropriate example where Graph objects
-    //need to be tested
-    expect(comp.paths.length).toEqual(9);
+  it('should return Truthy or Falthy', () => {
+    expect(comp.findEdge('A', 'B')).toBeTruthy();
+    expect(comp.findEdge('A', 'G')).toBeFalsy();
+  });
+
+  it('should add graph', () => {
+    let [_, from, to] = ['H', 'I', 10];
+    const graphCount = comp.edges.length;
+    comp.addEdge(from, to, 10);
+    expect(comp.edges.length).toEqual(graphCount + 1);
   });
 });
