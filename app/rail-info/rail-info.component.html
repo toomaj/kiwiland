@@ -3,8 +3,8 @@
     Rail Info
   </div>
   <div class='panel-body'>
-    <ul *ngFor='let output of distanceOutputs' class="list-group">
-      <li class="list-group-item">
+    <ul class="list-group">
+      <li *ngFor='let output of distanceOutputs' class="list-group-item">
         <span class="badge">{{ output.value }}</span>
         {{ output.text }}
       </li>
